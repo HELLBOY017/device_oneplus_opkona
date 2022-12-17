@@ -111,7 +111,7 @@ PRODUCT_PACKAGES += \
     libvisualizer \
     libvolumelistener
 
-AUDIO_HAL_DIR := vendor/qcom/opensource/audio-hal/primary-hal
+AUDIO_HAL_DIR := hardware/qcom-caf/sm8250/audio
 
 PRODUCT_COPY_FILES += \
     $(AUDIO_HAL_DIR)/configs/common/bluetooth_qti_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/bluetooth_qti_audio_policy_configuration.xml \
@@ -136,6 +136,16 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
+    android.hardware.bluetooth@1.0.vendor \
+    vendor.qti.hardware.bluetooth_audio@2.1.vendor \
+    vendor.qti.hardware.btconfigstore@1.0.vendor \
+    vendor.qti.hardware.btconfigstore@2.0.vendor
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.bluetooth_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth_le.xml \
+    frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml
+
+PRODUCT_PACKAGES += \
     audio.bluetooth.default
     
 # Boot control
@@ -155,6 +165,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libcamera2ndk_vendor \
     libstdc++.vendor
+    
+PRODUCT_PACKAGES += \
+    Camera2
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
@@ -171,6 +184,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     DeviceExtras \
     tri-state-key-calibrate
+
+# Component overrides
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/component-overrides.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sysconfig/component-overrides.xml
 
 # Display
 PRODUCT_PACKAGES += \
@@ -253,6 +270,11 @@ PRODUCT_PACKAGES += \
     libhidltransport.vendor \
     libhwbinder \
     libhwbinder.vendor
+    
+# IPACM
+PRODUCT_PACKAGES += \
+    ipacm \
+    IPACM_cfg.xml
 
 # Keymaster
 PRODUCT_PACKAGES += \
@@ -272,9 +294,21 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media/media_profiles_kona.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_kona.xml \
     $(LOCAL_PATH)/configs/media/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_ODM)/etc/media_profiles_V1_0.xml \
     $(LOCAL_PATH)/configs/media/media_profiles_kona.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_vendor.xml
+    
+PRODUCT_COPY_FILES += \
+    frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_c2.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_c2_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2_audio.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_c2_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_c2_video.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_telephony.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml \
+    frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video_le.xml
 
 PRODUCT_PACKAGES += \
     libavservices_minijail \
+    libavservices_minijail.vendor \
+    libcodec2_vndk.vendor \
+    libcodec2_hidl@1.0.vendor \
     libcodec2_hidl@1.0.vendor:32 \
     libcodec2_vndk.vendor:32 \
     android.hardware.media.c2@1.0.vendor \
@@ -369,15 +403,19 @@ PRODUCT_COPY_FILES += \
 
 # OMX
 PRODUCT_PACKAGES += \
+    init.qti.media.sh \
+    libmm-omxcore \
     libOmxAacEnc \
     libOmxAmrEnc \
     libOmxEvrcEnc \
     libOmxG711Enc \
-    libOmxQcelp13Enc
+    libOmxQcelp13Enc \
+    libOmxVdec \
+    libstagefrighthw
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay-flamingo \
+    $(LOCAL_PATH)/overlay-aosp \
     $(LOCAL_PATH)/overlay
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
@@ -427,22 +465,20 @@ TARGET_BOARD_PLATFORM := kona
 # Remove unwanted packages
 PRODUCT_PACKAGES += \
     RemovePackages
+    
+# Power
+PRODUCT_PACKAGES += \
+    android.hardware.power-service-qti \
+    android.hardware.power@1.2.vendor \
+    vendor.qti.hardware.perf@2.2.vendor
 
 # QMI
 PRODUCT_PACKAGES += \
+    libjson \
     libqti_vndfwk_detect \
     libqti_vndfwk_detect.vendor \
     libvndfwk_detect_jni.qti \
     libvndfwk_detect_jni.qti.vendor
-    
-# QTI Components
-TARGET_COMMON_QTI_COMPONENTS := \
-    bt \
-    media \
-    overlay \
-    perf \
-    telephony \
-    usb
 
 # RIL
 PRODUCT_PACKAGES += \
@@ -451,7 +487,9 @@ PRODUCT_PACKAGES += \
     android.hardware.radio.deprecated@1.0.vendor
 
 PRODUCT_PACKAGES += \
-    libprotobuf-cpp-full
+    libprotobuf-cpp-full \
+    librmnetctl \
+    libxml2
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -459,7 +497,8 @@ PRODUCT_PACKAGES += \
     init.mdm.sh \
     init.qcom.early_boot.sh \
     init.qcom.post_boot.sh \
-    init.qcom.sh
+    init.qcom.sh \
+    init.qcom.usb.sh
 
 PRODUCT_PACKAGES += \
     fstab.qcom \
@@ -468,6 +507,7 @@ PRODUCT_PACKAGES += \
     init.oplus.usb.rc \
     init.qcom.power.rc \
     init.qcom.rc \
+    init.qcom.usb.rc \
     init.recovery.qcom.rc \
     init.target.rc \
     init_overlayfs.rc \
@@ -508,12 +548,28 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
 # Telephony
+PRODUCT_PACKAGES += \
+    ims-ext-common \
+    ims_ext_common.xml \
+    qti-telephony-hidl-wrapper \
+    qti_telephony_hidl_wrapper.xml \
+    qti-telephony-utils \
+    qti_telephony_utils.xml \
+    telephony-ext \
+
+PRODUCT_BOOT_JARS += \
+    telephony-ext
+
 PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.telephony.cdma.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.cdma.xml \
+    frameworks/native/data/etc/android.hardware.telephony.gsm.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.gsm.xml \
+    frameworks/native/data/etc/android.hardware.telephony.ims.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.telephony.ims.xml \
     frameworks/native/data/etc/android.software.sip.voip.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.sip.voip.xml
     
 # Touch
 PRODUCT_PACKAGES += \
-    vendor.lineage.touch@1.0-service.oplus
+    vendor.lineage.touch@1.0-service.oplus \
+    TouchGestures
 
 # Update engine
 PRODUCT_PACKAGES += \
