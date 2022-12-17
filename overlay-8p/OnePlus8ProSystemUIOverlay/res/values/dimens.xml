@@ -19,6 +19,16 @@
 
     <dimen name="qs_header_row_min_height">172px</dimen>
     
+    <!-- Alert Slider UI -->
+    <dimen name="tri_state_down_dialog_position_l">772px</dimen>
+    <dimen name="tri_state_middle_dialog_position_l">665px</dimen>
+    <dimen name="tri_state_up_dialog_position_l">575px</dimen>
+    <dimen name="tri_state_up_dialog_position_deep">38px</dimen>
+    <dimen name="tri_state_up_dialog_position_deep_land">36px</dimen>
+    <dimen name="tri_state_down_dialog_position">745px</dimen>
+    <dimen name="tri_state_middle_dialog_position">614px</dimen>
+    <dimen name="tri_state_up_dialog_position">488px</dimen>
+    
     <!-- The Enrollment Progress bar for UDFPS sensor in pixels -->
     <integer name="config_udfpsEnrollProgressBar" translatable="false">120</integer>
     
