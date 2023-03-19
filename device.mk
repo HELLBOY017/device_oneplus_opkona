@@ -419,6 +419,7 @@ PRODUCT_PACKAGES += \
     
 # Overlays - OP8
 PRODUCT_PACKAGES += \
+    OnePlus8Aperture \
     OnePlus8FrameworkRes \
     OnePlus8WifiOverlay \
     OnePlus8SettingsProviderOverlay \
@@ -426,6 +427,7 @@ PRODUCT_PACKAGES += \
     
 # Overlays - OP8P
 PRODUCT_PACKAGES += \
+    OnePlus8ProAperture \
     OnePlus8ProFrameworkRes \
     OnePlus8ProWifiOverlay \
     OnePlus8ProSettingsProviderOverlay \
