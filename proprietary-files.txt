@@ -670,8 +670,8 @@ my_product/framework/com.android.hotwordenrollment.common.util.jar:product/frame
 my_product/priv-app/HotwordEnrollmentOKGoogle.apk:product/priv-app/HotwordEnrollmentOKGoogleHEXAGON/HotwordEnrollmentOKGoogle.apk
 my_product/priv-app/HotwordEnrollmentXGoogle.apk:product/priv-app/HotwordEnrollmentXGoogleHEXAGON/HotwordEnrollmentXGoogle.apk
 
-# IMS - from alioth_eea-user 12 RKQ1.200826.002 V13.0.3.0.SKHEUXM release-keys
-system_ext/priv-app/ims/ims.apk|46385ca4f276c2144e0d2dbe9aca2649f3d559ce
+# IMS - from LA.QSSI.13.0.r1-08600-qssi.0 
+system_ext/priv-app/ims/ims.apk|4ebf655d48f9924d7a00e993254044c81c497124
 
 # IMS
 odm/lib64/vendor.oplus.hardware.ims@1.0.so
