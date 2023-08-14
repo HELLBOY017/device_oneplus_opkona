@@ -80,6 +80,8 @@ void vendor_load_properties() {
 	property_override("ro.overlay.device", "instantnoodle");
 	property_override("bluetooth.device.default_name", "OnePlus 8");
 	property_override("ro.vendor.usb.name", "OnePlus 8");
+	property_override("ro.build.fingerprint", "OnePlus/OnePlus8/OnePlus8:13/RKQ1.211119.001/Q.11402a4-c5f9-c5fa:user/release-keys");
+	property_override("ro.build.description", "OnePlus8-user 13 RKQ1.211119.001 Q.11402a4-c5f9-c5fa release-keys");
       switch (rf_version){
           /* China */
         case 11:
@@ -114,6 +116,8 @@ void vendor_load_properties() {
 	property_override("ro.overlay.device", "instantnoodle");
 	property_override("bluetooth.device.default_name", "OnePlus 8");
 	property_override("ro.vendor.usb.name", "OnePlus 8");
+	property_override("ro.build.fingerprint", "OnePlus/OnePlus8/OnePlus8:13/RKQ1.211119.001/Q.11402a4-c5f9-c5fa:user/release-keys");
+	property_override("ro.build.description", "OnePlus8-user 13 RKQ1.211119.001 Q.11402a4-c5f9-c5fa release-keys");
       switch (rf_version){
             /* T-Mobile */
         case 12:
@@ -133,6 +137,8 @@ void vendor_load_properties() {
 	property_override("ro.overlay.device", "instantnoodle");
 	property_override("bluetooth.device.default_name", "OnePlus 8");
 	property_override("ro.vendor.usb.name", "OnePlus 8");
+	property_override("ro.build.fingerprint", "OnePlus/OnePlus8/OnePlus8:13/RKQ1.211119.001/Q.11402a4-c5f9-c5fa:user/release-keys");
+	property_override("ro.build.description", "OnePlus8-user 13 RKQ1.211119.001 Q.11402a4-c5f9-c5fa release-keys");
       switch (rf_version){
             /* T-Mobile */
         case 25:
@@ -152,6 +158,8 @@ void vendor_load_properties() {
 	property_override("ro.overlay.device", "instantnoodlep");
 	property_override("bluetooth.device.default_name", "OnePlus 8 Pro");
 	property_override("ro.vendor.usb.name", "OnePlus 8 Pro");
+	property_override("ro.build.fingerprint", "OnePlus/OnePlus8Pro/OnePlus8Pro:13/RKQ1.211119.001/Q.11402a4-c5f9-c5fa:user/release-keys");
+	property_override("ro.build.description", "OnePlus8Pro-user 13 RKQ1.211119.001 Q.11402a4-c5f9-c5fa release-keys");
       switch (rf_version){
           /* China */
         case 11:
@@ -186,6 +194,8 @@ void vendor_load_properties() {
 	property_override("ro.overlay.device", "kebab");
 	property_override("bluetooth.device.default_name", "OnePlus 8T");
 	property_override("ro.vendor.usb.name", "OnePlus 8T");
+	property_override("ro.build.fingerprint", "OnePlus/OnePlus8T/OnePlus8T:13/RKQ1.211119.001/R.113a31b-6826-6827:user/release-keys");
+	property_override("ro.build.description", "OnePlus8T-user 13 RKQ1.211119.001 R.113a31b-6826-6827 release-keys");
       switch (rf_version){
            /* China */
         case 11:
@@ -220,6 +230,8 @@ void vendor_load_properties() {
 	property_override("ro.overlay.device", "kebab");
 	property_override("bluetooth.device.default_name", "OnePlus 8T");
 	property_override("ro.vendor.usb.name", "OnePlus 8T");
+	property_override("ro.build.fingerprint", "OnePlus/OnePlus8T/OnePlus8T:13/RKQ1.211119.001/R.113a31b-6826-6827:user/release-keys");
+	property_override("ro.build.description", "OnePlus8T-user 13 RKQ1.211119.001 R.113a31b-6826-6827 release-keys");
       switch (rf_version){
             /* T-Mobile */
         case 12:
@@ -238,6 +250,8 @@ void vendor_load_properties() {
 	device = "OnePlus9R";
 	property_override("bluetooth.device.default_name", "OnePlus 9R");
 	property_override("ro.vendor.usb.name", "OnePlus 9R");
+	property_override("ro.build.fingerprint", "OnePlus/OnePlus9R_IND/OnePlus9R:13/RKQ1.211119.001/R.1188a20-675c3-747ec:user/release-keys");
+	property_override("ro.build.description", "OnePlus9R_IND-user 13 RKQ1.211119.001 R.1188a20-675c3-747ec release-keys");
       switch (rf_version){
             /* China */
       case 11:
@@ -260,6 +274,8 @@ void vendor_load_properties() {
 	device = "OnePlus9R";
 	property_override("bluetooth.device.default_name", "OnePlus 9R");
 	property_override("ro.vendor.usb.name", "OnePlus 9R");
+	property_override("ro.build.fingerprint", "OnePlus/OnePlus9R_IND/OnePlus9R:13/RKQ1.211119.001/R.1188a20-675c3-747ec:user/release-keys");
+	property_override("ro.build.description", "OnePlus9R_IND-user 13 RKQ1.211119.001 R.1188a20-675c3-747ec release-keys");
       switch (rf_version){
             /* China */
       case 11:
